@@ -27,9 +27,10 @@ from common_functions import list2file;
 
 
 class cmd_proc:
-  def __init__ ( self, bd, prom, var_dict ):
+  def __init__ ( self, bd, prom, user, var_dict ):
     self.bd          = bd;
     self.prom        = prom;
+    self.user        = user;
     self.cmd_history = [];
     self.var_dict    = var_dict;
     return;
@@ -118,6 +119,14 @@ class cmd_proc:
     elif ( cmd_txt[0:5] == "sleep" ):
       rts = self.cmd_sleep( cmd_str );
 
+    # Example User defined commands 
+    elif ( cmd_txt == "user1" ):
+      rts = self.user.user1( cmd_str );
+    elif ( cmd_txt == "user2" ):
+      rts = self.user.user2( cmd_str );
+    elif ( cmd_txt == "user3" ):
+      rts = self.user.user3( cmd_str );
+
     # PROM Commands
     elif ( cmd_txt == "prom_dump" ):
       rts = self.cmd_prom_dump( cmd_str );
@@ -179,16 +188,19 @@ class cmd_proc:
     r+=["#  mesa_subslot = n    : Assign mesa_subslot to n                  "];
     r+=["# File commands                                                    "];
     r+=["#  source file         : Source a bd_shell script                  "];
+    r+=["#  more filename       : Display contents of filename              "];
+    r+=["#  vi filename         : Edit filename with default editor         "];
+    r+=["#  > filename          : Pipe a command result to filename         "];
+    r+=["#  >> filename         : Concat a command result to filename       "];
     r+=["# Shell commands                                                   "];
     r+=["#  env                 : List all variables                        "];
     r+=["#  foo = bar           : Assign value bar to variable foo          "];
     r+=["#  print foo           : Display value of variable foo             "];
     r+=["#  sleep n             : Pause for n seconds                       "];
     r+=["#  sleep_ms n          : Pause for n milliseconds                  "];
-    r+=["#  more filename       : Display contents of filename              "];
-    r+=["#  vi filename         : Edit filename with default editor         "];
-    r+=["#  > filename          : Pipe a command result to filename         "];
-    r+=["#  >> filename         : Concat a command result to filename       "];
+    r+=["#  h or history        : Display command history                   "];
+    r+=["#  !!                  : Repeat last command from history          "];
+    r+=["#  !n                  : Repeat command n from history             "];
     r+=["#  ? or help           : Display this help screen                  "];
     r+=["#  quit                : Exit bd_shell                             "];
     r+=["###################################################################"];
@@ -222,6 +234,7 @@ class cmd_proc:
       dur = dur / 1000.0;
     sleep( dur );
     return rts;
+
 
 
   ##################################

@@ -31,8 +31,13 @@ class_lb_tcp_link.py    : Access to LocalBus over TCP link to bd_server.py
 
 class_spi_prom.py       : Access to spi_prom.v over LocalBus
 
+class_user.py           : Example user class for add-on functions
+
 common_functions.py     : Low Level File Input and Output functions
 
 bd_shell.ps1            : Deprecated .NET PowerShell version of bd_shell. 
 
 bd_server.py            : TCP Server for sharing hardware with multiple clients
+
+
+Kevin M. Hubbard, Black Mesa Labs 2018.08.29
