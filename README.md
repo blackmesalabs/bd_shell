@@ -12,15 +12,25 @@ and expanded by adding custom user add on modules written in Python.
 
 
 README.md               : This file
+
 bd_shell.py             : Top level Python3 script for Command Line.
+
 bd_shell.ini            : Configuration file for bd_shell.py
+
 class_cmd_proc.py       : User Text Command Processing 
+
 class_lb_link.py        : Access to LocalBus over MesaBus over serial
+
 class_ft600_usb_link.py : Access to serial over USB3 FT600 type connection
+
 class_uart_usb_link.py  : Access to serial over USB COM type connection
+
 class_mesa_bus.py       : Access to MesaBus over serial
+
 class_lb_tcp_link.py    : Access to LocalBus over TCP link to bd_server.py
+
 class_spi_prom.py       : Access to spi_prom.v over LocalBus
+
 common_functions.py     : Low Level File Input and Output functions
 
 bd_shell.ps1            : Deprecated .NET PowerShell version of bd_shell. 
