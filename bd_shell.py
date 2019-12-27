@@ -42,6 +42,7 @@ import class_lb_tcp_link;   # Access to LocalBus over TCP link to bd_server.py
 import class_mesa_bus;      # Access to MesaBus over serial
 import class_uart_usb_link; # Access to serial over USB COM type connection
 import class_ft600_usb_link;# Access to serial over USB3 FT600 type connection
+import class_user;          # Example user-defined command class
 
 
 def main():
@@ -92,8 +93,9 @@ def main():
                                  subslot=mesa_subslot );
  
   prom = class_spi_prom.spi_prom( lb_link = bd );
+  user = class_user.user( lb_link = bd )
 
-  cmd  = class_cmd_proc.cmd_proc( bd, prom, var_dict );
+  cmd  = class_cmd_proc.cmd_proc( bd, prom, user, var_dict );
 
   # If there is no argument, then sit in a loop CLI style 
   if ( args[1] == None ):

@@ -273,7 +273,7 @@ class cmd_proc:
     rts = self.prom.prom_load( addr, bitstream );
     return rts;
 
-  def cmd_prom_root( ):
+  def cmd_prom_root( self ):
     rts = self.prom.prom_root();
     return rts;
 
