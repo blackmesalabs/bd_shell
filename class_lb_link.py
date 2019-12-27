@@ -135,6 +135,6 @@ class lb_link:
             sys.exit();
           rts += [ 0xdeadbeef ];
     else:
-      print("ERROR: Invalid LocalBus Read >" + rts_str + "<");
+      print("ERROR: Invalid LocalBus Read >" + rts_str.decode('utf8') + "<");
       rts += [ 0xdeadbeef ];
     return rts;
