@@ -168,7 +168,7 @@ class spi_prom:
       bit_status = rts & self.prom_stat_mosi_rdy; # 
       i +=1;
     if ( i == 1000 ):
-      print("ERROR: spi_tx_ctrl() Timeout Abort"); 
+      print("ERROR: spi_wait_for_mosi_free() Timeout Abort"); 
     return;
 
   def spi_tx_data( self, data_payload ):
