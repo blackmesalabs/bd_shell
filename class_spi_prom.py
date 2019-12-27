@@ -34,7 +34,7 @@ class spi_prom:
   def __init__ ( self, lb_link ):
     self.bd = lb_link;
     # These are some constants from spi_prom.v
-    self.prom_stat_spi_busy          = 0x80;
+    self.prom_stat_err_ram_wr        = 0x80;
     self.prom_stat_mosi_polling_reqd = 0x40;
     self.prom_stat_mosi_rdy          = 0x20;
     self.prom_stat_miso_rdy          = 0x10;
